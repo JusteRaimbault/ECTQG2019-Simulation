@@ -1,0 +1,400 @@
+\documentclass{myBeamer}
+
+\input{header.tex}
+\usepackage{csquotes}
+\usepackage{pifont}
+%\newcommand{\cmark}{\textcolor{green}\ding{51}}
+%\newcommand{\xmark}{\textcolor{red}\ding{55}}
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+\title[eXModelo feedback]{Fostering the use of methods for geosimulation models sensitivity analysis and validation}
+
+\author{\tiny\noun{R. Reuillon}$^{1,2}$, \noun{M. Leclaire}$^{1,2}$, \noun{J. Raimbault}$^{3,1,2,\ast}$, \noun{H. Arduin}$^4$, \noun{P. Chapron}$^5$, \noun{G. Ch{\'e}rel}$^1$, \noun{E. Delay}$^6$, \noun{F. Lavall{\'e}e}$^7$, \noun{J. Passerat}$^8$, \noun{P. Peigne}$^9$, \noun{J. Perret}$^{1,5}$, \noun{S. Rey-Coyrehourcq}$^{10}$}
+
+%juste devrait être premier auteur non ? (il me semble que c'est lui qui a écrit le petit abstract) 
+
+\institute{\tiny
+$^1$ UPS CNRS 3611 ISC-PIF\\
+$^2$ UMR CNRS 8504 G{\'e}ographie-cit{\'e}s\\
+$^3$ CASA, UCL\\
+$^4$ UMR Inserm 1037 CRCT\\
+$^5$ Univ. Paris-Est, LaSTIG STRUDEL, IGN, ENSG\\
+$^6$ CIRAD UPR GREEN\\%, F-34398 Montpellier, France\\
+$^7$ Irstea, LISC \\
+$^8$ ConsenSys\\
+$^9$ {\'E}cole 42\\
+$^{10}$ UMR CNRS 6266 IDEES\medskip\\
+$^{\ast}$ juste.raimbault@polytechnique.edu\medskip\\
+\includegraphics[scale=2]{figures/openmole.png}
+}
+
+\date{\footnotesize ECTQG 2019\\
+Exploration of geosimulation models\\
+September 6th, 2019}
+
+\begin{document}
+
+
+
+\begin{frame}[plain]
+	\titlepage
+\end{frame}
+
+
+%\textit{Validation of simulation models; Multi-modeling; Model calibration; Sensitivity analysis; Incremental modeling; Pedagogy of simulation models}
+
+
+\sframe{Simulation in TQG}{
+
+\begin{columns}
+
+	\begin{column}{0.5\textwidth}
+	\centering
+	
+	\includegraphics[width=0.6\textwidth]{figures/openshaw.png}
+	
+	\footnotesize
+\textit{Geographical analysis machine \cite{openshaw1987mark}}
+	
+	\medskip
+	\hrule
+	\medskip
+	
+	\includegraphics[width=0.55\textwidth,height=0.3\textheight]{figures/intro_RBD_lattice.png}
+	
+	\footnotesize
+\textit{Hybrid urban morphogenesis \cite{raimbault2014hybrid}}
+	
+
+	\end{column}
+	\vrule{}
+	\begin{column}{0.5\textwidth}
+	\centering
+	
+	\includegraphics[width=0.7\textwidth]{figures/simpop1.png}
+	
+	\footnotesize
+\textit{Simpop 1 model\cite{sanders1997simpop}}
+
+	\medskip
+
+	\hrule
+	
+	\medskip
+
+	\includegraphics[width=0.6\textwidth]{figures/setup_synth_1_tick100.png}
+	
+	\footnotesize
+	\textit{SimpopNet model \cite{schmitt2014modelisation}}
+	
+	\end{column}
+
+
+\end{columns}
+
+}
+
+
+\sframe{Geographical systems and complexity}{
+
+% pour laquelle la prépondérance de l'espace augmente la complexité des modèles
+
+\textit{Necessity of simulation models in geography induced by complexities of these systems ?}
+
+\bigskip
+
+\begin{itemize}
+	\item Ontological complexity \cite{pumain2003approche}
+	\item Dynamical complexity: non-ergodicity and path-dependancy \cite{pumain2012urban}
+	\item Complexity and co-evolution
+	\item Complexity and emergence
+\end{itemize}
+
+}
+
+
+
+
+\sframe{Exploration of geosimulation models}{
+
+\textbf{Model exploration} is basically running a model \emph{a lot of times}, following a \emph{design of experiments}, to gain knowledge about \emph{model properties}.
+
+\medskip
+
+e.g. : sensitivity analysis 
+
+\bigskip
+
+Recent and significant increase in the development of methods to explore, calibrate and optimize (geo)simulation models.
+
+$\rightarrow$ ease model validation !
+%In recent years, there has been a significant increase in the development of methods to explore, validate, calibrate and optimize geosimulation models.
+
+}
+
+
+\sframe{Practice of model validation}{
+
+Methods and tools remain underused  by simulation communities, despite an easier access to HPC facilities.
+
+\bigskip
+
+\begin{small}
+e.g. mail of Bruce Edmonds (emblematic figure of social simulation) on the SIMSOC mailing list, on the 16\textsuperscript{th} th of May 2019.
+\begin{displayquote}
+Dear Colleagues,
+
+David Hales and I have been looking at \textbf{how to do massively parallel runs of NetLogo simulation models on the Cloud}. Something like (a) design your runs using NetLogo's BehaviorSpace (b) upload the model to the cloud (c) run it on the cloud (d) get the resulting table of results back.
+
+We are wondering how many people would be interested in something like this.[...]
+
+
+\end{displayquote}
+\end{small}
+}
+
+
+\sframe{OpenMOLE}{
+
+%The OpenMOLE model exploration software~\citep{reuillon2013openmole} is one of the reliable approaches fully dedicated to promote these techniques.
+
+% - promote OML + success stories
+
+The \textbf{OpenMOLE} free and open source software provides (i) model embedding; (ii) transparent access to HPC; (iii) state-of-the-art model exploration methods.
+
+\medskip
+
+\begin{center}
+    \includegraphics[width=0.2\textwidth]{figures/iconOM.png}
+    \includegraphics[width=0.5\linewidth]{figures/openmole.png}
+\end{center}
+
+\medskip
+
+\textbf{Success stories: } epidemiology \cite{arduin2018modelisation}, ecology \cite{lavallee2019stochastic}, planning \cite{brasebin2017apports}, urban science \cite{raimbault2018indirect}
+
+}
+
+
+\sframe{A researcher school on model exploration}{
+
+%This presentation offers some feedback on the recent initiative of a researcher school in model validation, focused around models and practices linked to the OpenMOLE platform.
+
+% - "not" an OpenMOlE school (although in practice it is)
+% - between a formal summer school and workshop based formats (MAPS)
+
+The \textbf{eXModelo school} to learn model validation methods
+
+\medskip
+
+\begin{center}
+    \includegraphics[width=0.7\textwidth]{figures/exmodelobanner.png}
+\end{center}
+
+\medskip
+
+\begin{itemize}
+    \item OpenMOLE as the learning tool, but reproducible with other tools and methods
+    \item between a formal summer school and a workshop (student projects)
+\end{itemize}
+
+
+}
+
+
+\sframe{Model used}{
+
+%We present the iterative exploration and validation protocol developed during the school, with methods of increasing refinement deployed on a toy geosimulation model (spatialized prey-predator agent-based model of a zombie infection, with multi-modeling paradigms to include diverse processes for agent behavior).
+
+% -> global guideline / progression in methods
+
+% - why a zombie model ? : kind of discipline-agnostic [difficulty of interdisciplinary dialogue / integration]
+
+\textit{A common model to present the exploration and validation protocol}
+
+$\rightarrow$ modularity and complementarity of aspects
+
+$\rightarrow$ possibility of an increased complexity and research questions left open
+% possibility of complexification  ? (à la place de increased complexity) 
+
+\bigskip
+
+\textit{A discipline-agnostic model: zombie epidemiology}
+
+$\rightarrow$ difficulty of interdisciplinary dialogue
+
+$\rightarrow$ agent-based spatial modeling as a natural way to enhance it
+% with no relation to a priviledged domain
+
+}
+
+\sframe{Sensitivity analysis}{
+
+% First, we illustrate classical sensitivity analysis methods (stochasticity, design of experiments, global sensitivity indices)
+
+\textit{Sensitivity analysis: stochasticity, Design of Experiments, sensitivity indices}
+
+
+
+}
+
+\sframe{Advanced methods}{
+
+%, and then specific methods to study spatial configuration sensitivity, evolutionary computation methods for calibration and diversity search, and Bayesian calibration methods.
+
+\textbf{Calibration}: Evolutionary (GA) and Bayesian (ABC) methods 
+
+\bigskip
+
+\textbf{Diversity Search}: "look for the variety of obtainable patterns in output space" 
+\bigskip
+
+\textbf{Origin Search}: "look for the input that produce a given pattern in output space"
+
+
+}
+
+
+\sframe{Advanced methods: spatial sensitivity}{
+
+\textit{A specific focus on spatial aspects: built-in spatial sensitivity analysis library }
+
+\begin{itemize}
+    \item Moran's I : spatial autocorrelation at a given range
+    \item Ripley's K : points clustering level
+    \item Geographically Weighted Regression
+\end{itemize}
+\bigskip
+e.g. Zombie invasion urban guerilla design : which spatial organization impedes the epidemics ?  
+
+}
+
+
+\sframe{Specific questions}{
+
+%They are applied on diverse specific submodels, highlighting specific mechanisms of the model, in order to answer associated thematic questions. We also illustrate the comparison with competing model ontologies by calibrating an ODE-based model on data generated by the simulation model.
+
+% - importance of multi-modeling / model comparison / model coupling
+
+\textit{Study of submodels to foster diverse questions and approaches}
+
+
+
+\textit{Comparison of the ABM with alternative ontologies}
+% alternative formalism plutôt que ontology ? (pour parler de l'ODE
+
+Regimes of ABM compared to ODE patterns 
+
+}
+
+
+\sframe{Synthesis: challenge}{
+
+%We finally synthesize lessons learned in the final challenge part of the school, consisting of the autonomous exploration of a new model instance by participants, including defining a thematic question and applying appropriate validation methods.
+
+% - openness is crucial (define their own questions)
+% - no direction taken had been previously thought
+% - not that much need to interact with model code (a few did)
+
+A \textbf{student challenge} for autonomous practice 
+
+$\rightarrow$ they define a fresh thematic question 
+
+$\rightarrow$ they define the adequate design of experiments, especially methods and measures.
+
+\bigskip 
+Possibly :  model code modification
+
+}
+
+\sframe{Discussion : Pedagogical Implementation}{
+
+%This experiment both introduces a broad overview of new geosimulation model methods, and suggests ways to disseminate these into the modeling communities through similar pedagogical implementations.
+
+% - importance of the progressive introduction of methods / a full set / mindset . (different from reading a specific hard technical paper about the super new method)
+
+
+Goals :
+\begin{itemize}
+    \item Balancing theory and practice 
+    \item Flattening disciplinary heterogeneity 
+    \item Focusing on model analysis methods instead of platform/framework  
+\end{itemize}
+\bigskip
+Expected benefits :
+\begin{itemize}
+    \item \textbf{Methods and approach dissemination}
+    \item \small{OpenMOLE visibility improvement} %à voir si on veut promouvoir OpenMOLE en tant que tel 
+
+\end{itemize}
+
+}
+
+\sframe{Discussion : Pedagogical Implementation}{
+Agenda :
+\bigskip
+
+\underline{Progressive introduction of methods(2.5 day)}
+
+$\rightarrow$ first day mostly devoted to vocabulary/concepts/framework\\
+$\rightarrow$  each course followed by group practice session on toy example \\
+$\rightarrow$  emphasis on  "question $\longleftrightarrow$ method" 
+
+\bigskip
+
+\underline{Advanced methods (0.5) day}
+
+$\rightarrow$ 3 hours focused on a specific advanced method : ODE modeling, ABC method calibration, Spatial sensitivity analysis
+\bigskip
+
+\underline{Challenge (1.5 day)}
+
+$\rightarrow$ application of the method corpus on self defined  question
+
+$\rightarrow$ $~5$ students group , collective restitution 
+
+}
+
+
+\sframe{Conclusion}{
+
+$\approx$ 1 month of workload (ventilated during the year before)  for 8-9 people, consumed in 5 days !
+
+}
+
+
+\sframe{eXmodelo II}{
+
+% pub pour exmodelo 2 !
+
+\textit{We need you if the zombies come back}
+
+
+
+}
+
+
+
+
+%\backupbegin
+
+
+%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[allowframebreaks]
+\frametitle{References}
+\bibliographystyle{apalike}
+\bibliography{biblio}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\backupend
+
+
+
+
+
+\end{document}
+
+

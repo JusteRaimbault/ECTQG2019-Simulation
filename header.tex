@@ -1,64 +1,83 @@
 
-% general packages without options
-\usepackage{amsmath,amssymb,bbm}
-% graphics
-\usepackage{graphicx}
-% text formatting
-\usepackage[document]{ragged2e}
-\usepackage{pagecolor,color}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\Proba}{\mathbb{P}}
 
-\newcommand{\noun}[1]{\textsc{#1}}
+\newcommand{\Covb}[2]{\ensuremath{\Cov\!\left[#1,#2\right]}}
+\newcommand{\Eb}[1]{\ensuremath{\E\!\left[#1\right]}}
+\newcommand{\Pb}[1]{\ensuremath{\Proba\!\left[#1\right]}}
+\newcommand{\Varb}[1]{\ensuremath{\Var\!\left[#1\right]}}
 
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-% geometry
-\usepackage[margin=2cm]{geometry}
+% norm
+%\newcommand{\norm}[1]{\| #1 \|}
 
-\usepackage{multicol}
-\usepackage{setspace}
-
-\usepackage{natbib}
-\setlength{\bibsep}{0.0pt}
-
-%\usepackage[french]{babel}
-
-% layout : use fancyhdr package
-%\usepackage{fancyhdr}
-%\pagestyle{fancy}
-
-% variable to include comments or not in the compilation ; set to 1 to include
-\def \draft {1}
+\newcommand{\indep}{\rotatebox[origin=c]{90}{$\models$}}
 
 
-% writing utilities
 
-% comments and responses
-%  -> use this comment to ask questions on what other wrote/answer questions with optional arguments (up to 4 answers)
-\usepackage{xparse}
-\usepackage{ifthen}
-\DeclareDocumentCommand{\comment}{m o o o o}
-{\ifthenelse{\draft=1}{
-    \textcolor{red}{\textbf{C : }#1}
-    \IfValueT{#2}{\textcolor{blue}{\textbf{A1 : }#2}}
-    \IfValueT{#3}{\textcolor{ForestGreen}{\textbf{A2 : }#3}}
-    \IfValueT{#4}{\textcolor{red!50!blue}{\textbf{A3 : }#4}}
-    \IfValueT{#5}{\textcolor{Aquamarine}{\textbf{A4 : }#5}}
- }{}
-}
 
-% todo
-\newcommand{\todo}[1]{
-\ifthenelse{\draft=1}{\textcolor{red!50!blue}{\textbf{TODO : \textit{#1}}}}{}
-}
 
+\usepackage{mathptmx,amsmath,amssymb,graphicx,bibentry,bbm,babel,ragged2e}
 
 \makeatletter
 
 
+\renewcommand{\addlogo}{
+	\hfill	
+	\includegraphics[height=.4cm]{figures/iconOM.png}
+	\includegraphics[scale=1]{figures/openmole_dark.png}
+}
+
+
+\newcommand{\noun}[1]{\textsc{#1}}
+\newcommand{\jitem}[1]{\item \begin{justify} #1 \end{justify} \vfill{}}
+%\newcommand{\sframe}[2]{\frame{\frametitle{#1}\addlogo #2}}
+
+\newenvironment{centercolumns}{\begin{columns}[c]}{\end{columns}}
+%\newenvironment{jitem}{\begin{justify}\begin{itemize}}{\end{itemize}\end{justify}}
+
+%\usetheme{Warsaw}
+%\setbeamertemplate{footline}[text line]{}
+%\setbeamersize{text margin left=15pt,text margin right=15pt}
+%\setbeamertemplate{headline}{}
+%\setbeamertemplate{footline}[frame number]
+%\setbeamertemplate{navigation symbols}{}
+
+\usetheme{Darmstadt}
+\setbeamertemplate{headline}{}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{palette quaternary}{fg=primaryDarkOM, bg=primaryGreenOM}
+
+
+%\setbeamercovered{transparent}
+%\setbeamercolor{structure}{fg=purple!50!blue, bg=purple!50!blue}
+
+\@ifundefined{showcaptionsetup}{}{%
+ \PassOptionsToPackage{caption=false}{subfig}}
+\usepackage{subfig}
+
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+
+
+\usepackage{tikz}
+
+\usepackage{multirow}
+
+\usepackage{mdframed}
+
+%\usepackage[usenames,dvipsnames]{pstricks}
+%\usepackage{auto-pst-pdf}
+
+
+%\usepackage[dvipsnames]{xcolor}
+
+\usepackage{threeparttable}
+
+
+\usepackage{listings}
+\lstset{language=Java} 
+
 \makeatother
-
-
-
-
-
 
