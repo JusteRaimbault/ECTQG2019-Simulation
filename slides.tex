@@ -12,7 +12,8 @@
 
 \author{\tiny\noun{R. Reuillon}$^{1,2}$, \noun{M. Leclaire}$^{1,2}$, \noun{J. Raimbault}$^{3,1,2,\ast}$, \noun{H. Arduin}$^4$, \noun{P. Chapron}$^5$, \noun{G. Ch{\'e}rel}$^1$, \noun{E. Delay}$^6$, \noun{F. Lavall{\'e}e}$^7$, \noun{J. Passerat}$^8$, \noun{P. Peigne}$^9$, \noun{J. Perret}$^{1,5}$, \noun{S. Rey-Coyrehourcq}$^{10}$}
 
-%juste devrait être premier auteur non ? (il me semble que c'est lui qui a écrit le petit abstract) 
+%Juste devrait être premier auteur non ? (il me semble que c'est lui qui a écrit le petit abstract)  
+% comme c'est Romain et Mathieu qui ont créé exmodelo ca semble plus logique - too late anyway l'abstract est published.
 
 \institute{\tiny
 $^1$ UPS CNRS 3611 ISC-PIF\\
@@ -61,10 +62,10 @@ September 6th, 2019}
 	\hrule
 	\medskip
 	
-	\includegraphics[width=0.55\textwidth,height=0.3\textheight]{figures/intro_RBD_lattice.png}
+	\includegraphics[width=0.55\textwidth,height=0.3\textheight]{figures/banos-schelling.png}
 	
 	\footnotesize
-\textit{Hybrid urban morphogenesis \cite{raimbault2014hybrid}}
+\textit{Schelling on networks \cite{banos2012network}}
 	
 
 	\end{column}
@@ -118,6 +119,8 @@ September 6th, 2019}
 
 \sframe{Exploration of geosimulation models}{
 
+\justify
+
 \textbf{Model exploration} is basically running a model \emph{a lot of times}, following a \emph{design of experiments}, to gain knowledge about \emph{model properties}.
 
 \medskip
@@ -127,6 +130,8 @@ e.g. : sensitivity analysis
 \bigskip
 
 Recent and significant increase in the development of methods to explore, calibrate and optimize (geo)simulation models.
+
+\bigskip
 
 $\rightarrow$ ease model validation !
 %In recent years, there has been a significant increase in the development of methods to explore, validate, calibrate and optimize geosimulation models.
@@ -141,7 +146,9 @@ Methods and tools remain underused  by simulation communities, despite an easier
 \bigskip
 
 \begin{small}
-e.g. mail of Bruce Edmonds (emblematic figure of social simulation) on the SIMSOC mailing list, on the 16\textsuperscript{th} th of May 2019.
+e.g. mail of Bruce Edmonds (emblematic figure of social simulation) on the SIMSOC mailing list, on the 16\textsuperscript{th} of May 2019.
+
+\begin{mdframed}
 \begin{displayquote}
 Dear Colleagues,
 
@@ -151,6 +158,7 @@ We are wondering how many people would be interested in something like this.[...
 
 
 \end{displayquote}
+\end{mdframed}
 \end{small}
 }
 
@@ -160,6 +168,8 @@ We are wondering how many people would be interested in something like this.[...
 %The OpenMOLE model exploration software~\citep{reuillon2013openmole} is one of the reliable approaches fully dedicated to promote these techniques.
 
 % - promote OML + success stories
+
+\justify
 
 The \textbf{OpenMOLE} free and open source software provides (i) model embedding; (ii) transparent access to HPC; (iii) state-of-the-art model exploration methods.
 
@@ -189,7 +199,7 @@ The \textbf{eXModelo school} to learn model validation methods
 \medskip
 
 \begin{center}
-    \includegraphics[width=0.7\textwidth]{figures/exmodelobanner.png}
+    \includegraphics[width=0.9\textwidth]{figures/exmodelobanner.png}
 \end{center}
 
 \medskip
@@ -199,6 +209,30 @@ The \textbf{eXModelo school} to learn model validation methods
     \item between a formal summer school and a workshop (student projects)
 \end{itemize}
 
+
+}
+
+
+\sframe{Passionated researchers...}{
+
+\centering
+
+\includegraphics[width=0.58\textwidth]{figures/exmodelo-students_IMG_3206_LR.jpg}\\
+\includegraphics[width=0.58\textwidth]{figures/exmodelo-francois_IMG_3488.jpg}
+
+
+
+
+}
+
+
+
+\sframe{... and intensive computation}{
+
+\centering
+
+\includegraphics[width=0.58\textwidth]{figures/exmodelo-myria_20190625_123342_LR.jpg}\\
+\includegraphics[width=0.58\textwidth]{figures/exmodelo-ordioml_IMG_3786_LR.jpg}
 
 }
 
@@ -213,7 +247,11 @@ The \textbf{eXModelo school} to learn model validation methods
 
 \textit{A common model to present the exploration and validation protocol}
 
+\medskip
+
 $\rightarrow$ modularity and complementarity of aspects
+
+\medskip
 
 $\rightarrow$ possibility of an increased complexity and research questions left open
 % possibility of complexification  ? (à la place de increased complexity) 
@@ -222,22 +260,260 @@ $\rightarrow$ possibility of an increased complexity and research questions left
 
 \textit{A discipline-agnostic model: zombie epidemiology}
 
+\medskip
+
 $\rightarrow$ difficulty of interdisciplinary dialogue
+
+\medskip
 
 $\rightarrow$ agent-based spatial modeling as a natural way to enhance it
 % with no relation to a priviledged domain
 
 }
 
+
+
+\sframe{An operational model for local Zombie invasion}{
+
+\justify
+
+
+
+\begin{center}
+%\includegraphics[width=\textwidth]{figures/zombieGUI.png}
+\includegraphics[width=\textwidth]{figures/zombieland_gui.png}
+\end{center}
+
+\medskip
+
+\footnotesize
+
+\textit{Local scale agent-based model}
+
+}
+
+
+\sframe{Agents state machines}{
+
+\includegraphics[width=0.51\textwidth]{figures/humanStateMachine.png}\hspace{0.2cm}\includegraphics[width=0.46\textwidth]{figures/zombieStateMachine.png}
+
+% launch simu https://om.exmodelo.org/coop/
+
+}
+
+
+
+
 \sframe{Sensitivity analysis}{
 
 % First, we illustrate classical sensitivity analysis methods (stochasticity, design of experiments, global sensitivity indices)
 
-\textit{Sensitivity analysis: stochasticity, Design of Experiments, sensitivity indices}
+%\textit{Sensitivity analysis: stochasticity, Design of Experiments, sensitivity indices}
+
+\textbf{\textit{Design of Experiments}}
+
+
+\begin{mdframed}
+
+\begin{columns}
+	\begin{column}{0.2\linewidth}
+	
+	\bigskip
+	\bigskip
+	
+	One factor at a time
+	
+	\medskip
+	
+	Complete plan
+	
+	\medskip
+	
+	LHS/Sobol
+		
+	\end{column}
+	\begin{column}{0.2\linewidth}
+		
+		\textbf{Coverage}
+		
+		\bigskip
+		
+		{\textcolor{red}
+		\xmark
+		}
+		
+		\medskip
+		
+		{\textcolor{green}
+		\cmark
+		}
+		
+		\medskip
+		
+		{\textcolor{green}
+		\cmark
+		}
+			
+	\end{column}
+	
+	\begin{column}{0.25\linewidth}
+		
+		\textbf{Interpretability}
+		
+		\bigskip
+		
+		{\textcolor{green}
+		\cmark
+		}
+		
+		\medskip
+		
+		{\textcolor{green}
+		\cmark
+		}
+		
+		\medskip
+		
+		{\textcolor{red}
+		\xmark
+		}	
+	\end{column}
+	
+	\begin{column}{0.2\linewidth}
+		
+		\textbf{Budget}
+		
+		\bigskip
+		
+		{\textcolor{green}
+		\cmark
+		}
+		
+		\medskip
+		
+		{\textcolor{red}
+		\xmark
+		}
+		
+		\medskip
+		
+		{\textcolor{green}
+		\cmark
+		}	
+	\end{column}
+
+	
+	
+	
+\end{columns}
+
+	
+\end{mdframed}
+
+\bigskip
+
+\textbf{\textit{Sensitivity analysis}}
+
+\begin{mdframed}
+	\begin{columns}
+	\begin{column}{0.2\linewidth}
+	
+	\bigskip
+	\bigskip
+	
+	Morris
+	
+	\medskip
+	
+	Saltelli
+	
+
+		
+	\end{column}
+	\begin{column}{0.2\linewidth}
+		
+		\textbf{Coverage}
+		
+		\bigskip
+		
+		{\textcolor{red}
+		\xmark
+		}
+		
+		\medskip
+		
+		{\textcolor{green}
+		\cmark
+		}
+		
+	
+			
+	\end{column}
+	
+	\begin{column}{0.25\linewidth}
+		
+		\textbf{Interpretability}
+		
+		\bigskip
+		
+		{\textcolor{green}
+		\cmark
+		}
+		
+		\medskip
+		
+		{\textcolor{green}
+		\cmark
+		}
+			
+	\end{column}
+	
+	\begin{column}{0.2\linewidth}
+		
+		\textbf{Budget}
+		
+		\bigskip
+		
+		{\textcolor{green}
+		\cmark
+		}
+		
+		\medskip
+		
+		{\textcolor{red}
+		\xmark
+		}
+			
+	\end{column}
+
+	
+	
+	
+\end{columns}
+	
+\end{mdframed}
 
 
 
 }
+
+
+
+\sframe{Example: Morris sensitivity}{
+
+\textit{Syntax of a sensitivity analysis method in OpenMOLE}
+
+\bigskip
+
+\includegraphics[width=\textwidth]{figures/morris_code.png}
+
+\bigskip
+
+$\rightarrow$ \textbf{Practice for students at eXModelo: } explore the script \texttt{morris.oms}, comment the results obtained with a large-scale experiment \texttt{morrisresults}
+
+}
+
+
 
 \sframe{Advanced methods}{
 
@@ -303,10 +579,35 @@ $\rightarrow$ they define a fresh thematic question
 
 $\rightarrow$ they define the adequate design of experiments, especially methods and measures.
 
-\bigskip 
-Possibly :  model code modification
+$\rightarrow$ possibly model code modification
+
+\bigskip
+
+\centering
+\includegraphics[width=0.7\textwidth]{figures/exmodelo-challenge_IMG_3876_LR.jpg}
+
 
 }
+
+
+\sframe{Challenge results}{
+
+\textit{Each group came with unforeseen questions and ideas; not much advanced methods where however used}
+
+\medskip
+
+\centering
+
+\includegraphics[width=0.45\textwidth]{figures/exmodelo-vision_IMG_4101_LR.jpg}\hspace{0.1cm}
+\includegraphics[width=0.45\textwidth]{figures/exmodelo-slowfood_IMG_4172_LR.jpg}\\\vspace{0.1cm}
+\includegraphics[width=0.45\textwidth]{figures/exmodelo-horde_IMG_4208_LR.jpg}\hspace{0.1cm}
+\includegraphics[width=0.45\textwidth]{figures/exmodelo-stationary_IMG_4157_LR.jpg}
+
+
+
+}
+
+
 
 \sframe{Discussion : Pedagogical Implementation}{
 
@@ -368,7 +669,15 @@ $\approx$ 1 month of workload (ventilated during the year before)  for 8-9 peopl
 
 % pub pour exmodelo 2 !
 
-\textit{We need you if the zombies come back}
+\textit{We need you if the zombies come back !}
+
+$\rightarrow$ prepare you for end of May, 2020 !
+
+\medskip
+
+\centering
+
+\includegraphics[width=0.9\textwidth]{figures/exmodelo-group_IMG_4067_LR.jpg}
 
 
 
