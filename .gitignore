@@ -1,4 +1,6 @@
 .DS_Store
 .texpadtmp
-*.pdf
+#*.pdf
+slides.pdf
+ectqg2019_exmodelo.pdf
 
